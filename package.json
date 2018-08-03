@@ -32,7 +32,8 @@
     "nyc": "^10.3.2",
     "power-assert": "^1.4.4",
     "prettier": "^1.9.2",
-    "testdouble": "^3.1.1"
+    "testdouble": "^3.1.1",
+    "yaml": "^1.0.0-rc.7"
   },
   "homepage": "https://github.com/cloudflare/node-cloudflare",
   "keywords": [

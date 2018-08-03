@@ -1,0 +1,181 @@
+name: Accounts
+path: accounts
+basic:
+  - browse
+  - get
+  - edit
+methods:
+  auditLogs:
+    method: GET
+    path: audit_logs
+---
+name: AccountAccessFirewall
+path: accounts/:accountId/firewall/access_rules/rules
+basic:
+  - browse
+  - read
+  - edit
+  - delete
+---
+name: AccountMembers
+path: accounts/:accountId/members
+basic:
+  - browse
+  - read
+  - edit
+  - add
+  - del
+---
+name: AccountRoles
+path: accounts/:accountId/roles
+basic:
+  - browse
+  - read
+---
+name: AccountSubscriptions
+path: accounts/:accountId/subscriptions
+basic:
+  - browse
+  - edit
+  - add
+  - del
+---
+name: DNSRecords
+import: dnsRecords
+path: zones/:zoneId/dns_records
+basic:
+  - browse
+  - read
+  - add
+  - del
+methods:
+  edit:
+    method: PUT
+    path: :id
+  import:
+    method: POST
+    contentType: text/dns
+---
+name: DNSAnalytics
+import: dnsAnalytics
+path: zones/:zoneId/dns_analytics
+method:
+  table:
+    method: GET
+    path: report
+  time:
+    method: GET
+    path: report/bytime
+---
+name: EnterpriseZoneWorkersRoutes
+path: zones/:zoneId/workers/routes
+basic:
+  - browse
+  - read
+  - edit
+  - add
+  - del
+---
+name: IPs
+import: ips
+path: ips
+basic: [browse]
+---
+name: User
+path: user
+method:
+  read:
+    method: GET
+  edit:
+    method: PATCH
+  auditLogs:
+    method: GET
+    path: audit_logs
+---
+name: UserAccessFirewall
+path: user/firewall/access_rules/rules
+basic:
+  - browse
+  - read
+  - edit
+  - delete
+---
+name: UserAccountMemberships
+path: membership
+basic:
+  - browse
+  - read
+  - edit
+  - del
+---
+name: UserInvites
+path: user/invites
+basic:
+  - browse
+  - read
+methods:
+  accept:
+    method: PATCH
+    path: :id
+---
+name: UserSubscriptions
+path: user/subscriptions
+basic:
+  - read
+  - edit
+  - del
+---
+name: Zones
+path: zones
+basic:
+  - browse
+  - read
+  - edit
+  - add
+  - del
+hasBrokenPatch: true
+methods:
+  activationCheck:
+    method: PUT
+    path: :id/activation_check
+  purgeCache:
+    method: DELETE
+    path: :id/purge_cache
+---
+name: ZoneAccessFirewall
+path: zones/:zoneId/firewall/access_rules/rules
+basic:
+  - browse
+  - read
+  - edit
+  - delete
+---
+name: ZoneAnalytics
+path: zones/:zoneId/analytics
+methods:
+  dashboard:
+    method: GET
+    path: dashboard
+  colos:
+    method: GET
+    path: colos
+---
+name: ZoneSubscription
+path: zones/:zoneId/subscription
+methods:
+  read:
+    method: GET
+  edit:
+    method: PUT
+  add:
+    method: POST
+---
+name: ZoneSettings
+path: zones/:zoneId/settings
+basic:
+  - browse
+  - read
+  - edit
+methods:
+  editAll:
+    method: PATCH

@@ -13,21 +13,7 @@ const auto = require('autocreate');
 const Client = require('./lib/Client');
 const proxy = require('./lib/proxy');
 
-/* eslint-disable global-require */
-const resources = {
-  dnsRecords: require('./lib/resources/DNSRecords'),
-  enterpriseZoneWorkersScripts: require('./lib/resources/EnterpriseZoneWorkersScripts'),
-  enterpriseZoneWorkersRoutes: require('./lib/resources/EnterpriseZoneWorkersRoutes'),
-  ips: require('./lib/resources/IPs'),
-  zones: require('./lib/resources/Zones'),
-  zoneSettings: require('./lib/resources/ZoneSettings'),
-  zoneCustomHostNames: require('./lib/resources/ZoneCustomHostNames'),
-  zoneWorkers: require('./lib/resources/ZoneWorkers'),
-  zoneWorkersScript: require('./lib/resources/ZoneWorkersScript'),
-  zoneWorkersRoutes: require('./lib/resources/ZoneWorkersRoutes'),
-  user: require('./lib/resources/User'),
-};
-/* eslint-enable global-require */
+const resources = require('./lib/resources');
 
 /**
  * withEnvProxy configures an HTTPS proxy if required to reach the Cloudflare API.
