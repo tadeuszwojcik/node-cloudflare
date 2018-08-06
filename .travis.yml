@@ -40,10 +40,16 @@ jobs:
     - stage: release
       node_js: 8
       script:
-        - npm install -g documentation@^5.3.5
-        - documentation build index.js --format html --output documentation
+        - npx documentation build index.js --format html --output documentation
       deploy:
         provider: pages
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         local_dir: documentation
+      deploy:
+        provider: script
+        script: npx now documentation --static --public --token $NOW_TOKEN --name node-cloudflare-docs
+        skip_cleanup: true
+        on:
+          all_branches: true
+          master: false
